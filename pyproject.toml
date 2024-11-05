@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "data-transforms-library"
+version = "1.0.3"
+description = "Data Transforms Library"
+
+authors = [
+    "yogeshkeshetty-ybor <yogesh@ybor.ai>",
+    "Archetect <archetect@github.io>",
+]
+
+readme = "README.md"
+packages = [
+    { include = "data_transforms_library", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+pyspark = "^3.5.0"
+pyyaml = "^6.0"
+boto3 = "^1.28.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+flake8 = "^6.1.0"
+
+[[tool.poetry.source]]
+name = "ybor_playground_pypi"
+url = "https://p6m.jfrog.io/artifactory/api/pypi/ybor-playground-pypi/simple"
+priority = "supplemental"
+
+[[tool.poetry.source]]
+name = "ybor_playground_pypi_local"
+url = "https://p6m.jfrog.io/artifactory/api/pypi/ybor-playground-pypi-local/simple"
+priority = "supplemental"
+
+[[tool.poetry.source]]
+name = "ybor_playground_pypi_push"
+url = "https://p6m.jfrog.io/artifactory/api/pypi/ybor-playground-pypi"
+priority = "supplemental"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.poetry.scripts]
+main = "data_transforms_library.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
