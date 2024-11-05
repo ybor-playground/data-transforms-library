@@ -1,6 +1,6 @@
-name: Dev Build & Deploy
-
 permissions: write-all
+
+name: Dev Build & Deploy
 
 on:
   workflow_call:
