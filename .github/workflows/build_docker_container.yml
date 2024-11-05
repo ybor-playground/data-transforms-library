@@ -1,5 +1,7 @@
 name: Dev Build & Deploy
 
+permissions: write-all
+
 on:
   workflow_call:
     secrets:
