@@ -1213,7 +1213,6 @@ elif check["check_type"] == "custom_check":
 |-----------|-------------|
 | `src/data_transforms_library/ybor/examples/orders.json` | CSV transformation with date parsing |
 | `src/data_transforms_library/ybor/examples/sales.json` | Transformation with encryption and static columns |
-| `src/data_transforms_library/ybor/examples/example.py` | Python usage example with Spark SQL |
 
 ---
 
