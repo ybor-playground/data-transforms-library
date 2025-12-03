@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "data-transforms-library"
-version = "1.0.0"
+version = "1.0.1"
 description = "Data Transforms Library"
 
 authors = [
