@@ -4,7 +4,7 @@ from data_transforms_library.ybor.driver.driver import Driver
 
 def main():
     with open(
-            "orders.json",
+            "orders_azure.json",
             "r",
     ) as file:
         config = json.load(file)
