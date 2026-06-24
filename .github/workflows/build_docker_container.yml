@@ -44,10 +44,10 @@ on:
         type: string
 
 env:
-  ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-  ARTIFACTORY_IDENTITY_TOKEN: ${{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
-  UPDATE_MANIFEST_TOKEN: ${{ secrets.UPDATE_MANIFEST_TOKEN }}
-  ARTIFACTORY_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
+  ARTIFACTORY_USERNAME: ${{ secrets.P6M_ARTIFACTORY_USERNAME }}
+  ARTIFACTORY_IDENTITY_TOKEN: ${{ secrets.P6M_ARTIFACTORY_IDENTITY_TOKEN }}
+  UPDATE_MANIFEST_TOKEN: ${{ secrets.P6M_UPDATE_MANIFEST_TOKEN }}
+  ARTIFACTORY_TOKEN: ${{ secrets.P6M_ARTIFACTORY_TOKEN }}
   ARTIFACTORY_REGISTRY: ${{ inputs.ARTIFACTORY_REGISTRY }}
   INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   AWS_DEFAULT_REGION: ${{ inputs.AWS_REGION }}
@@ -80,7 +80,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry --version
-          poetry config http-basic.${{ inputs.ORG_NAME }}_${{ inputs.VENTURE_NAME }}_pypi_local  ${{ secrets.ARTIFACTORY_USERNAME }}  ${{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
+          poetry config http-basic.${{ inputs.ORG_NAME }}_${{ inputs.VENTURE_NAME }}_pypi_local  ${{ secrets.P6M_ARTIFACTORY_USERNAME }}  ${{ secrets.P6M_ARTIFACTORY_IDENTITY_TOKEN }}
           poetry install --verbose
 
       - name: Setup Node
@@ -121,7 +121,7 @@ jobs:
       - name: Publish to Private PyPI
         run: |
           poetry version ${{ steps.TAG.outputs.value }}
-          poetry --build publish -r ${{ inputs.ORG_NAME }}_${{ inputs.VENTURE_NAME }}_pypi_push -u ${{ secrets.ARTIFACTORY_USERNAME }} -p ${{ secrets.ARTIFACTORY_IDENTITY_TOKEN }}
+          poetry --build publish -r ${{ inputs.ORG_NAME }}_${{ inputs.VENTURE_NAME }}_pypi_push -u ${{ secrets.P6M_ARTIFACTORY_USERNAME }} -p ${{ secrets.P6M_ARTIFACTORY_IDENTITY_TOKEN }}
 
       - name: Prepare Artifact
         run: |
